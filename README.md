@@ -32,16 +32,16 @@ Database SQLite akan otomatis dibuat di folder `data/booking.db` saat pertama ka
 ### Langkah 1: Buat Resource Group & App Service
 
 ```bash
-# Buat Resource Group (pilih region terdekat)
+# Buat atau gunakan Resource Group yang sama; perintah ini tidak menghapus resource
 az group create \
   --name rg-cosplay-booking \
-  --location southeastasia
+  --location indonesiacentral
 
-# Buat App Service Plan (Linux, tier B1)
+# Buat App Service Plan (Linux, tier Free F1)
 az appservice plan create \
   --name plan-cosplay-booking \
   --resource-group rg-cosplay-booking \
-  --sku B1 \
+  --sku F1 \
   --is-linux
 
 # Buat Web App dengan PHP 8.4
@@ -196,6 +196,8 @@ deploy-service-azure/
 
 ## 👨‍💻 Developer
 
+Nama: Nanda Pratama Sugiarto
+NIM: 102062400019
 Mata Kuliah: **Komputasi Awan** — Semester 5  
 Platform: Azure App Service (Linux, PHP 8.4)  
 Database: SQLite via PDO (no external DB required)
