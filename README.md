@@ -196,6 +196,9 @@ deploy-service-azure/
 
 ## 👨‍💻 Developer
 
+Nama: Nanda Pratama Sugiarto
+NIM: 102062400019
+Kelas: IS-07-01
 Mata Kuliah: **Komputasi Awan** — Semester 5  
 Platform: Azure App Service (Linux, PHP 8.4)  
 Database: SQLite via PDO (no external DB required)
