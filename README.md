@@ -32,41 +32,41 @@ Database SQLite akan otomatis dibuat di folder `data/booking.db` saat pertama ka
 ### Langkah 1: Buat Resource Group & App Service
 
 ```bash
-# Buat atau gunakan Resource Group yang sama; perintah ini tidak menghapus resource
+# Buat Resource Group
 az group create \
-  --name rg-cosplay-booking \
+  --name cossnap-nando \
   --location indonesiacentral
 
 # Buat App Service Plan (Linux, tier Free F1)
 az appservice plan create \
-  --name plan-cosplay-booking \
-  --resource-group rg-cosplay-booking \
+  --name cossnap \
+  --resource-group cossnap-nando \
   --sku F1 \
   --is-linux
 
 # Buat Web App dengan PHP 8.4
 az webapp create \
-  --resource-group rg-cosplay-booking \
-  --plan plan-cosplay-booking \
-  --name cosplay-booking-app \
+  --resource-group cossnap-nando \
+  --plan cossnap \
+  --name cossnap \
   --runtime "PHP:8.4"
 ```
 
-> **Ganti `cosplay-booking-app`** dengan nama unik yang belum digunakan (nama akan jadi subdomain `.azurewebsites.net`).
+> Jika nama Web App `cossnap` sudah digunakan, ganti dengan nama unik. Nama tersebut menjadi subdomain `.azurewebsites.net`.
 
 ### Langkah 2: Konfigurasi App Settings
 
 ```bash
 # Disable Oryx build (tidak perlu Composer)
 az webapp config appsettings set \
-  --resource-group rg-cosplay-booking \
-  --name cosplay-booking-app \
+  --resource-group cossnap-nando \
+  --name cossnap \
   --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false
 
 # Timezone Jakarta
 az webapp config appsettings set \
-  --resource-group rg-cosplay-booking \
-  --name cosplay-booking-app \
+  --resource-group cossnap-nando \
+  --name cossnap \
   --settings WEBSITE_TIME_ZONE="SE Asia Standard Time"
 ```
 
@@ -82,8 +82,8 @@ zip -r site.zip . \
 
 # Deploy ke Azure
 az webapp deployment source config-zip \
-  --resource-group rg-cosplay-booking \
-  --name cosplay-booking-app \
+  --resource-group cossnap-nando \
+  --name cossnap \
   --src site.zip
 ```
 
@@ -91,10 +91,10 @@ az webapp deployment source config-zip \
 
 ```bash
 # Buka di browser
-az webapp browse --resource-group rg-cosplay-booking --name cosplay-booking-app
+az webapp browse --resource-group cossnap-nando --name cossnap
 ```
 
-URL: `https://cosplay-booking-app.azurewebsites.net`
+URL: `https://cossnap.azurewebsites.net`
 
 ---
 
@@ -196,8 +196,6 @@ deploy-service-azure/
 
 ## 👨‍💻 Developer
 
-Nama: Nanda Pratama Sugiarto
-NIM: 102062400019
 Mata Kuliah: **Komputasi Awan** — Semester 5  
 Platform: Azure App Service (Linux, PHP 8.4)  
 Database: SQLite via PDO (no external DB required)
