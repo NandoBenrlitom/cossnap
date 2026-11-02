@@ -1,0 +1,23 @@
+# Database (SQLite - jangan di-push ke git)
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# PHP config lokal
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deployment artifacts
+site.zip
+*.zip
